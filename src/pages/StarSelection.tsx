@@ -334,6 +334,7 @@ export function StarSelection({
             </div>
           </div>
         </div>
+        </div>
 
       {/* Star Detail Modal */}
       <AnimatePresence>
