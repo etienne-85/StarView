@@ -261,13 +261,13 @@ export function StarSelection({
                     border: `1px solid rgba(127, 255, 148, 0.3)`
                   }}
                 >
-                  <Sparkles className="w-4 h-4 text-cosmic-observation" />
+                  <Sparkles className="w-4 h-4" style={{ color: 'rgb(127, 255, 148)' }} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-light text-cosmic-observation">
+                  <h3 className="text-lg font-light" style={{ color: 'rgb(127, 255, 148)' }}>
                     {emotion.name} Stars
                   </h3>
-                  <p className="text-cosmic-stellar-wind text-xs font-light opacity-70">
+                  <p className="text-xs font-light opacity-70" style={{ color: 'rgb(248, 250, 252)' }}>
                     {starsToDisplay.length} celestial beacons ({displaySource})
                   </p>
                 </div>
@@ -280,8 +280,7 @@ export function StarSelection({
                 <motion.div
                   key={catalogStar.hyg.id}
                   className="rounded-lg p-3 cursor-pointer transition-all duration-300 border group"
-                  // FIXED: Moved conditional styling from style prop to animate prop
-                  animate={{
+                  style={{
                     backdropFilter: 'blur(12px)',
                     background: selectedStar?.hyg.id === catalogStar.hyg.id
                       ? 'rgba(248, 250, 252, 0.06)' 
@@ -313,26 +312,28 @@ export function StarSelection({
                         border: '1px solid rgba(127, 255, 148, 0.2)'
                       }}
                     >
-                      <StarIcon className="w-4 h-4 text-cosmic-observation" />
+                      <Star className="w-4 h-4" style={{ color: 'rgb(127, 255, 148)' }} />
                     </div>
                     
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-cosmic-observation font-light text-sm truncate group-hover:text-cosmic-light-echo transition-colors">
+                      <h4 className="font-light text-sm truncate group-hover:opacity-90 transition-opacity" 
+                          style={{ color: 'rgb(127, 255, 148)' }}>
                         {catalogStar.hyg.proper || `HYG ${catalogStar.hyg.id}`}
                       </h4>
-                      <p className="text-cosmic-stellar-wind text-xs font-light opacity-60 group-hover:opacity-80 transition-opacity truncate">
+                      <p className="text-xs font-light opacity-60 group-hover:opacity-80 transition-opacity truncate"
+                         style={{ color: 'rgb(248, 250, 252)' }}>
                         Magnitude: {catalogStar.hyg.mag.toFixed(2)}
                       </p>
                     </div>
 
-                    <ChevronRight className="w-4 h-4 text-cosmic-stellar-wind opacity-0 group-hover:opacity-60 transition-all transform group-hover:translate-x-1" />
+                    <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-60 transition-all transform group-hover:translate-x-1" 
+                                  style={{ color: 'rgb(248, 250, 252)' }} />
                   </div>
                 </motion.div>
               ))}
             </div>
           </div>
         </div>
-      </div>
 
       {/* Star Detail Modal */}
       <AnimatePresence>
