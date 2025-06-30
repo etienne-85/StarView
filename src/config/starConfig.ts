@@ -37,7 +37,7 @@ export const STAR_SETTINGS = {
 
 // Camera animation configuration
 export const ORBIT_SPEED = 0.05; // Default orbit speed for camera animations
-export const FOCUS_DURATION = 10000; // Duration in milliseconds for star focusing animations
+export const FOCUS_DURATION = 5000; // Duration in milliseconds for star focusing animations
 
 // Rendering performance configuration
 export const MAX_CLASSIC_RENDER_STARS = 10000; // Maximum stars rendered in classic mode
