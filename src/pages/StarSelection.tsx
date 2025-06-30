@@ -22,8 +22,9 @@ import { STAR_SETTINGS } from '../config/starConfig';
  * - Renders suggested stars in sidebar
  * - Maintains camera focus control for user interactions
  * - Star detail modal using selectedStar from parent
+ * - FIXED: Sidebar selection visual state using framer-motion animate prop
  * 
- * Confidence Rating: High - Clean props-based architecture
+ * Confidence Rating: High - Clean props-based architecture with fixed selection state
  */
 
 interface StarSelectionProps {
@@ -279,7 +280,8 @@ export function StarSelection({
                 <motion.div
                   key={catalogStar.hyg.id}
                   className="rounded-lg p-3 cursor-pointer transition-all duration-300 border group"
-                  style={{
+                  // FIXED: Moved conditional styling from style prop to animate prop
+                  animate={{
                     backdropFilter: 'blur(12px)',
                     background: selectedStar?.hyg.id === catalogStar.hyg.id
                       ? 'rgba(248, 250, 252, 0.06)' 
@@ -287,6 +289,10 @@ export function StarSelection({
                     borderColor: selectedStar?.hyg.id === catalogStar.hyg.id
                       ? 'rgba(127, 255, 148, 0.2)' 
                       : 'rgba(248, 250, 252, 0.04)'
+                  }}
+                  transition={{
+                    background: { duration: 0.3, ease: "easeOut" },
+                    borderColor: { duration: 0.3, ease: "easeOut" }
                   }}
                   whileHover={{ 
                     scale: 1.01,
